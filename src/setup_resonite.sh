@@ -22,10 +22,10 @@ if [ $ALLOWMODS -eq 1 ]; then
 			Headless/net8.0/rml_config \
 			Headless/net8.0/Libraries
 
-	# rsync any mods and associated files from our mounted volume
-	rsync -av /RML/rml_mods ${STEAMAPPDIR}/Headless/net8.0/rml_mods
-	rsync -av /RML/rml_libs ${STEAMAPPDIR}/Headless/net8.0/rml_libs
-	rsync -av /RML/rml_config ${STEAMAPPDIR}/Headless/net8.0/rml_config
+	# copy any mods and associated files from our mounted volume
+	cp -a /RML/rml_mods/. ${STEAMAPPDIR}/Headless/net8.0/rml_mods/
+	cp -a /RML/rml_libs/. ${STEAMAPPDIR}/Headless/net8.0/rml_libs/
+	cp -a /RML/rml_config/. ${STEAMAPPDIR}/Headless/net8.0/rml_config/
 
 	# From: https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8?permalink_comment_id=5097031#gistcomment-5097031
 	# Fetch the latest release version number for ResoniteModLoader
