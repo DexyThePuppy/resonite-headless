@@ -1,16 +1,20 @@
 version: "3.3"
 services:
   resonite:
-    image: shadowpanther/resonite-headless:latest
+    image: pointeroffset/resonite-headless-net8:latest
     container_name: resonite-headless
+    # Optionally define a hostname. Useful for log file naming.
+    #hostname: resonite-headless 
     tty: true
     stdin_open: true
     environment:
+      ALLOWMODS: 0
       STEAMBETA: headless
       STEAMBETAPASSWORD: CHANGEME
       STEAMLOGIN: "USER PASSWORD"
     volumes:
       - "./Config:/Config:ro"
       - "./Logs:/Logs"
+      - "./RML:/RML"
       - "/etc/localtime:/etc/localtime:ro"
     restart: unless-stopped

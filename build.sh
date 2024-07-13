@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t shadowpanther/resonite-headless .
+docker build --no-cache -t pointeroffset/resonite-headless-net8 .

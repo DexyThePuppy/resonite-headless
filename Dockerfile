@@ -1,6 +1,8 @@
-FROM mono
+FROM mcr.microsoft.com/dotnet/runtime:8.0.7-bookworm-slim-amd64
 
-LABEL name=resonite-headless org.opencontainers.image.authors="panther.ru@gmail.com"
+LABEL name=resonite-headless-net8 org.opencontainers.image.authors="admin@pointeroffset.dev"
+
+ENV ALLOWMODS=0
 
 ENV	STEAMAPPID=2519830 \
 	STEAMAPP=resonite \
@@ -17,7 +19,7 @@ ENV	STEAMAPPDIR="${HOMEDIR}/${STEAMAPP}-headless"
 RUN	set -x && \
 	apt-get -y update && \
 	apt-get -y upgrade && \
-	apt-get -y install curl lib32gcc1 libopus-dev libopus0 opus-tools libc-dev && \
+	apt-get -y install curl lib32gcc-s1 libopus-dev libopus0 opus-tools libc-dev && \
 	rm -rf /var/lib/{apt,dpkg,cache}
 
 # Add locales
@@ -31,7 +33,7 @@ RUN	sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 	update-locale LANG=en_GB.UTF-8 && \
 	rm -rf /var/lib/{apt,dpkg,cache}
 
-ENV	LANG en_GB.UTF-8
+ENV	LANG=en_GB.UTF-8
 
 # Fix the LetsEncrypt CA cert
 RUN	sed -i 's#mozilla/DST_Root_CA_X3.crt#!mozilla/DST_Root_CA_X3.crt#' /etc/ca-certificates.conf && update-ca-certificates
@@ -59,7 +61,7 @@ USER ${USER}
 
 WORKDIR ${STEAMAPPDIR}
 
-VOLUME ["${STEAMAPPDIR}", "/Config", "/Logs"]
+VOLUME ["${STEAMAPPDIR}", "/Config", "/Logs", "/RML"]
 
 STOPSIGNAL SIGINT
 
