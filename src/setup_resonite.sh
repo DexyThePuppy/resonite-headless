@@ -12,7 +12,7 @@ find /Logs -type f -name *.log -atime +30 -delete
 mkdir -p Headless/Migrations Headless/net8.0/Migrations
 
 # If Mods flag is enabled, do the setup for mods.
-if [ $ALLOWMODS -eq 1 ] then
+if [ $ALLOWMODS -eq 1 ]; then
 	# Make sure the Resonite user owns the RML volume we mounted.
 	chown -R resonite:resonite /RML
 
