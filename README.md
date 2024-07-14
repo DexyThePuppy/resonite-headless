@@ -1,4 +1,4 @@
-# resonite-headless
+# resonite-headless-net8
 Docker image of a Resonite headless server using the newly available net8.0 build based on [ShadowPanther's resonite-headless image](https://github.com/shadowpanther/resonite-headless).
 
 ## Mod Configuration
