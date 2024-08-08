@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: resonite-headless
-      image: shadowpanther/resonite-headless
+      image: pointeroffset/resonite-headless-net8
       env:
         - name: STEAMBETA
           valueFrom:
