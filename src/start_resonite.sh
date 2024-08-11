@@ -1,5 +1,5 @@
 #!/bin/sh
-cd ${STEAMAPPDIR}/Headless/net8.0/
+cd ${STEAMAPPDIR}/Headless/
 
 if [ $ALLOWMODS -eq 1 ]; then
     exec dotnet Resonite.dll -LoadAssembly Libraries/ResoniteModLoader.dll -HeadlessConfig /Config/Config.json -Logs /Logs
