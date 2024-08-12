@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   resonite:
-    image: ghcr.io/dexythepuppy/resonite-headless:latest
+    image: dexythepuppy/resonite-headless:latest
     container_name: resonite-headless
     # Optionally define a hostname. Useful for log file naming.
     #hostname: resonite-headless 
